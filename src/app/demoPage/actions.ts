@@ -66,10 +66,3 @@ export async function getDemoPageContent(
   const { password: _, ...pageContent } = page;
   return pageContent;
 }
-export async function checkPassword(formData: FormData) {
-  const password = formData.get("password") as string;
-  // Redirect to the same page with password as query param
-  const url = new URL(window.location.href);
-  url.searchParams.set("password", password);
-  window.location.href = url.toString();
-}
