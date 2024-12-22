@@ -47,13 +47,11 @@ export async function getDemoPageContent(
 
   if (!page) {
     return {
-      title: "Welcome",
-      whatWeDo:
-        "Explore our range of solutions designed to help your business grow.",
+      title: "Error",
+      whatWeDo: "",
       productDemo: {
-        title: "Overview Demo",
-        description:
-          "Discover how our solutions can help transform your business.",
+        title: "",
+        description: "",
       },
     };
   }
