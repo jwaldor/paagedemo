@@ -6,7 +6,7 @@ export default async function DemoPage({
 }: {
   searchParams: { pageId: string; password?: string }
 }) {
-  const content = await getDemoPageContent(await searchParams.pageId, await searchParams.password)
+  const content = await getDemoPageContent(searchParams.pageId, searchParams.password)
   const showPasswordForm = content === null
 
 
@@ -16,7 +16,7 @@ export default async function DemoPage({
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <PasswordForm
-          error={await searchParams.password !== undefined}
+          error={searchParams.password !== undefined}
         />
       </div>
     )
