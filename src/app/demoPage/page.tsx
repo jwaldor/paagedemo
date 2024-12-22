@@ -4,19 +4,17 @@ import PasswordForm from './PasswordForm'
 export default async function DemoPage({
   searchParams,
 }: {
-  searchParams: { pageId: string; password?: string }
+  searchParams: Promise<{ pageId: string; password?: string }>
 }) {
-  const content = await getDemoPageContent(searchParams.pageId, searchParams.password)
+  const params = await searchParams
+  const content = await getDemoPageContent(params.pageId, params.password)
   const showPasswordForm = content === null
-
-
-
 
   if (showPasswordForm) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <PasswordForm
-          error={searchParams.password !== undefined}
+          error={params.password !== undefined}
         />
       </div>
     )
