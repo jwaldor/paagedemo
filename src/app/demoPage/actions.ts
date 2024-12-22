@@ -63,6 +63,7 @@ export async function getDemoPageContent(
   }
 
   // Remove password before returning the content
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password: _, ...pageContent } = page;
   return pageContent;
 }
